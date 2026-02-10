@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: CodeMentor API
+  description: API for CodeMentor local neuro-symbolic debugging assistant.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/api
+paths:
+  /chat:
+    post:
+      summary: Stream chat response from local LLM
+      description: Proxies chat completion requests to a local Ollama instance.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  description: The model to use (default qwen-coder)
+                  example: qwen-coder
+                messages:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      role:
+                        type: string
+                        enum: [user, assistant, system]
+                      content:
+                        type: string
+                  example:
+                    - role: user
+                      content: "Debug this python code..."
+      responses:
+        '200':
+          description: Successful stream
+          content:
+            application/x-ndjson:
+              schema:
+                type: string
+                description: Stream of JSON objects from Ollama
+        '500':
+          description: Internal Server Error

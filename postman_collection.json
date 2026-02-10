@@ -1,0 +1,39 @@
+{
+    "info": {
+        "_postman_id": "b3e9a5a0-1234-5678-9abc-def012345678",
+        "name": "CodeMentor API",
+        "description": "Collection for CodeMentor Debugging Tool",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Chat Completion",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"model\": \"qwen-coder\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Write a binary search in Python\"\n        }\n    ]\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/chat",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "chat"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
