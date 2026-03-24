@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 export const metadata: Metadata = {
   title: 'CodeMentor - Local Neuro-Symbolic Debugger',
   description: 'Execution-Aware Fault Localization using Local Neuro-Symbolic AI Models',
+  icons: {
+    icon: '/logo.svg',
+  },
 };
 
 export default function RootLayout({

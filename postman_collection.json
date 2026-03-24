@@ -34,6 +34,36 @@
                 }
             },
             "response": []
+        },
+        {
+            "name": "Export PDF",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Debug this code snippet...\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"I found an error in line 4...\"\n        }\n    ],\n    \"session_title\": \"Code Analysis\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/export/pdf",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "export",
+                        "pdf"
+                    ]
+                }
+            },
+            "response": []
         }
     ]
 }

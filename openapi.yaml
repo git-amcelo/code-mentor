@@ -44,3 +44,39 @@ paths:
                 description: Stream of JSON objects from Ollama
         '500':
           description: Internal Server Error
+  /export/pdf:
+    post:
+      summary: Export chat session as a PDF
+      description: Generates a professionally formatted PDF document from a chat history.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messages:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      role:
+                        type: string
+                        enum: [user, assistant]
+                      content:
+                        type: string
+                session_title:
+                  type: string
+                  example: "Fault Localization Analysis"
+      responses:
+        '200':
+          description: PDF data stream
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Invalid request body
+        '500':
+          description: PDF generation error
