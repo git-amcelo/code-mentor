@@ -7,12 +7,10 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import remarkGfm from 'remark-gfm';
 import {
   Code2,
-  Terminal,
   Activity,
   Cpu,
   FileDown,
   ChevronRight,
-  Database,
   Network,
   Copy,
   Check,
